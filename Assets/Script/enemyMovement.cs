@@ -80,6 +80,7 @@ public class enemyMovement : MonoBehaviour, IDamageable
         if (hp < 1)
         {
             targetGameObject.GetComponent<Level>().AddExperience(experienceReward);
+            GetComponent<DropOnDestroy>().CheckDrop();
             Destroy(gameObject);
         }
     }
