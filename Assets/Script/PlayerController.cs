@@ -17,9 +17,10 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public float lastVerticalVector;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        lastHorizontalVector = 1f;
+        lastVerticalVector = 1f;
     }
 
     // Update is called once per frame
@@ -36,8 +37,8 @@ public class PlayerController : MonoBehaviour
         float face;
 
         face = Input.GetAxisRaw("Horizontal");
-        horizontalMove = Input.GetAxis("Horizontal");
-        verticalMove = Input.GetAxis("Vertical");
+        horizontalMove = Input.GetAxisRaw("Horizontal");
+        verticalMove = Input.GetAxisRaw("Vertical");
         movementVector.x = horizontalMove;
         movementVector.y = verticalMove;
 

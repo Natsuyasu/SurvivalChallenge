@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6268500248533554098}
   - component: {fileID: 6268500248533554097}
   - component: {fileID: 114704398721639966}
+  - component: {fileID: 114000902035312076}
   m_Layer: 0
   m_Name: redWorm
   m_TagString: Untagged
@@ -163,3 +164,18 @@ MonoBehaviour:
   DropItemPrefab: {fileID: 5635041696471385045, guid: e03e5d8e988eed74395829d9b42f5d3c,
     type: 3}
   chance: 0.8
+--- !u!114 &114000902035312076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268500248533554100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e92246f02638d4aafef5cce73ded12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropItemPrefab: {fileID: 3917216890479268680, guid: afae61930837bf84495c144ccabc4fda,
+    type: 3}
+  chance: 0.01

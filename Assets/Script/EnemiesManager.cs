@@ -9,6 +9,7 @@ public class EnemiesManager : MonoBehaviour
     [SerializeField] Vector2 spawnArea;
     [SerializeField] float spawnTimer;
     [SerializeField] GameObject player;
+    
     //[SerializeField] PlayerManager Manager;
     //public GameObject player;
     float timer;
