@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1093759447364638902}
   - component: {fileID: 8258741323404187537}
   - component: {fileID: 6800343910014737842}
+  - component: {fileID: 4474124705796399130}
   m_Layer: 0
   m_Name: AttackLight
   m_TagString: Untagged
@@ -94,3 +95,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   damage: 5
+--- !u!95 &4474124705796399130
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7843018440927625087}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de204a1321c2740f385902f5de7d6b89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
