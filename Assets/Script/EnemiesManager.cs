@@ -8,11 +8,17 @@ public class EnemiesManager : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField] Vector2 spawnArea;
     [SerializeField] float spawnTimer;
-    [SerializeField] GameObject player;
+    GameObject player;
     
     //[SerializeField] PlayerManager Manager;
     //public GameObject player;
     float timer;
+
+
+    private void Start()
+    {
+        player = GameManager.instance.playerTransform.gameObject;
+    }
 
     private void Update()
     {

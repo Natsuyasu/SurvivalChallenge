@@ -8,11 +8,16 @@ public class SpownItemManager : MonoBehaviour
     [SerializeField] GameObject Item;
     [SerializeField] Vector2 spawnArea;
     [SerializeField] float spawnTimer;
-    [SerializeField] GameObject player;
+    GameObject player;
     [SerializeField] [Range(0f, 1f)] float probability;
     //[SerializeField] PlayerManager Manager;
     //public GameObject player;
     float timer;
+
+    private void Start()
+    {
+        player = GameManager.instance.playerTransform.gameObject;
+    }
 
     private void Update()
     {
