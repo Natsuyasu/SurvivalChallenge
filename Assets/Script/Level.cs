@@ -9,6 +9,10 @@ public class Level : MonoBehaviour
     [SerializeField] ExperienceBar experienceBar;
     [SerializeField] UpGradePanelManager UpGradePanel;
 
+    [SerializeField] List<UpGradeData> upGrades;
+    List<UpGradeData> selectUpgrades;
+    [SerializeField] List<UpGradeData> acquiredUpgrades;
+
     int TO_LEVEL_UP
     {
         get
@@ -30,8 +34,22 @@ public class Level : MonoBehaviour
         experienceBar.UpdateExperienceSlider(experience, TO_LEVEL_UP);
     }
 
+    public void Upgrade(int selectedUpgradeID)
+    {
+        UpGradeData upGradeData = selectUpgrades[selectedUpgradeID];
+
+        if (acquiredUpgrades == null)
+        {
+            acquiredUpgrades = new List<UpGradeData>();
+        }
+
+        acquiredUpgrades.Add(upGradeData);
+        upGrades.Remove(upGradeData);
+    }
+
     public void CheckLevelUP()
     {
+
         if (experience >= TO_LEVEL_UP)
         {
             LevelUP();
@@ -40,9 +58,38 @@ public class Level : MonoBehaviour
 
     private void LevelUP()
     {
-        UpGradePanel.OpenPanel();
+
+        if (selectUpgrades == null)
+        {
+            selectUpgrades = new List<UpGradeData>();
+        }
+
+        selectUpgrades.Clear();
+        selectUpgrades.AddRange(GetUpGrades(3));
+
+
+        UpGradePanel.OpenPanel(selectUpgrades);
         experience -= TO_LEVEL_UP;
         level++;
         experienceBar.SetLevelText(level);
     }
+
+    public List<UpGradeData> GetUpGrades(int count)
+    {
+        List<UpGradeData> upGradeList = new List<UpGradeData>();
+
+        if (count > upGrades.Count)
+        {
+            count = upGrades.Count;
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            upGradeList.Add(upGrades[Random.Range(0, upGrades.Count)]);
+        }
+        
+
+        return upGradeList;
+    }
+
 }
