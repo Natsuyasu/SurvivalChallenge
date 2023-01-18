@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6268500248533554098}
   - component: {fileID: 6268500248533554097}
   - component: {fileID: 114704398721639966}
-  - component: {fileID: 114000902035312076}
+  - component: {fileID: 728522934335772069}
   m_Layer: 0
   m_Name: redWorm
   m_TagString: Untagged
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6268500248533554100}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -161,21 +161,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e92246f02638d4aafef5cce73ded12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropItemPrefab: {fileID: 5635041696471385045, guid: e03e5d8e988eed74395829d9b42f5d3c,
-    type: 3}
+  DropItemPrefab:
+  - {fileID: 5635041696471385045, guid: e03e5d8e988eed74395829d9b42f5d3c, type: 3}
+  - {fileID: 3514890287288083853, guid: 54a6dfbc0a97d0245ac1717e3700f89b, type: 3}
   chance: 0.8
---- !u!114 &114000902035312076
-MonoBehaviour:
+--- !u!58 &728522934335772069
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6268500248533554100}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e92246f02638d4aafef5cce73ded12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DropItemPrefab: {fileID: 3917216890479268680, guid: afae61930837bf84495c144ccabc4fda,
-    type: 3}
-  chance: 0.01
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32

@@ -8,7 +8,7 @@ public class AttackLightWeapon : WeaponBase
     PlayerController playerMove;
 
     [SerializeField] GameObject AttackLightPrefab;
-
+    [SerializeField] float spread;
     private void Awake()
     {
         playerMove = GetComponentInParent<PlayerController>();
@@ -19,9 +19,27 @@ public class AttackLightWeapon : WeaponBase
     
     public override void Attack()
     {
-        GameObject attackLight = Instantiate(AttackLightPrefab);
-        attackLight.transform.position = transform.position;
-        attackLight.GetComponent<AttackLightProjectil>().SetDirection(playerMove.lastHorizontalVector, 0f);
+        
+
+        for (int i = 0; i < weaponStates.numberOfAttack; i++)
+        {
+            GameObject attackLight = Instantiate(AttackLightPrefab);
+
+            Vector3 newPosition = transform.position;
+
+            if (weaponStates.numberOfAttack > 1)
+            {
+                newPosition.y -= (spread * (weaponStates.numberOfAttack -1)) / 2;
+                newPosition.y += i * spread;
+            }
+
+            attackLight.transform.position = newPosition;
+            AttackLightProjectil attackLightProjectil = attackLight.GetComponent<AttackLightProjectil>();
+            attackLightProjectil.SetDirection(playerMove.lastHorizontalVector, 0f);
+            //attackLightProjectil.SetDirection(playerMove.lastHorizontalVector, newPosition.y);
+            attackLightProjectil.damage = weaponStates.damage;
+        }
+        
     
 }
 }

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Coins : MonoBehaviour
 {
-    public int coinAcquired;
+    [SerializeField] DataCotainer data;
+    //public int coinAcquired;
     [SerializeField] TMPro.TextMeshProUGUI coinsCountText;
 
     public void Add(int count)
     {
-        coinAcquired += count;
-        coinsCountText.text = "Coins: " + coinAcquired.ToString();
+        data.coins += count;
+        coinsCountText.text = "Coins: " + data.coins.ToString();
     }
 
 }

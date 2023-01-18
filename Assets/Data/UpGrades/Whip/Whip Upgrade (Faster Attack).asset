@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5042e1240669b459f1e592aeb965bb, type: 3}
+  m_Name: Whip Upgrade (Faster Attack)
+  m_EditorClassIdentifier: 
+  upGradeType: 0
+  Name: faster attack
+  icon: {fileID: 21300000, guid: d6bd73a085805f042a30d1f18a84ff9c, type: 3}
+  weaponData: {fileID: 11400000, guid: 36f667605b4e64a4ebbeacf913b7b0dc, type: 2}
+  weaponUpgradeStates:
+    damage: 0
+    timeToAttack: -0.5

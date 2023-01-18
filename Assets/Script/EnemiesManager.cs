@@ -12,7 +12,7 @@ public class EnemiesManager : MonoBehaviour
     
     //[SerializeField] PlayerManager Manager;
     //public GameObject player;
-    float timer;
+   
 
 
     private void Start()
@@ -20,21 +20,13 @@ public class EnemiesManager : MonoBehaviour
         player = GameManager.instance.playerTransform.gameObject;
     }
 
-    private void Update()
-    {
-        timer -= Time.deltaTime;
-        if (timer < 0f)
-        {
-            SpawnEnemy();
-            timer = spawnTimer;
-        }
-    }
+    
 
-    private void SpawnEnemy()
+    public void SpawnEnemy(EnemyData enemyToSpawn)
     {
         Vector3 position = GenerateRandomPosition();
         position += player.transform.position;
-        GameObject newEnemy = Instantiate(enemy);
+        GameObject newEnemy = Instantiate(enemyToSpawn.EnemyPrefab);
         newEnemy.transform.position = position;
         newEnemy.GetComponent<enemyMovement>().SetTarget(player);
         newEnemy.transform.parent = transform;

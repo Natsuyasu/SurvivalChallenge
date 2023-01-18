@@ -47,6 +47,8 @@ MonoBehaviour:
   weaponStates:
     damage: 0
     timeToAttack: 0
+    numberOfAttack: 0
   timeToAttack: 1.5
   AttackLightPrefab: {fileID: 7843018440927625087, guid: 8c754c429b864724aa052b038842be78,
     type: 3}
+  spread: 0.4

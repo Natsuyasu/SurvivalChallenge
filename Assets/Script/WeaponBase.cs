@@ -20,7 +20,7 @@ public abstract class WeaponBase : MonoBehaviour
         if(timer < 0f)
         {
             Attack();
-            timer = timeToAttack;
+            timer = weaponStates.timeToAttack;
         }
 
     }
@@ -30,7 +30,7 @@ public abstract class WeaponBase : MonoBehaviour
         weaponData = wd;
         timeToAttack = weaponData.stats.timeToAttack;
 
-        weaponStates = new WeaponStates(wd.stats.damage, wd.stats.timeToAttack);
+        weaponStates = new WeaponStates(wd.stats.damage, wd.stats.timeToAttack, wd.stats.numberOfAttack);
     }
 
     public abstract void Attack();
@@ -40,4 +40,8 @@ public abstract class WeaponBase : MonoBehaviour
         MessageSystem.instance.PostMessage(damage.ToString(), targetPosition);
     }
 
+    public void Upgrade(UpGradeData upGradeData)
+    {
+        weaponStates.Sum(upGradeData.weaponUpgradeStates);
+    }
 }

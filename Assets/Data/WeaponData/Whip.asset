@@ -15,6 +15,11 @@ MonoBehaviour:
   Name: Whip
   stats:
     damage: 10
-    timeToAttack: 1.5
+    timeToAttack: 3
+    numberOfAttack: 3
   weaponBasePrefab: {fileID: 7914702044747847113, guid: 338c35b4f30acb24c977aa19b5388b70,
     type: 3}
+  upGrades:
+  - {fileID: 11400000, guid: 519270406e921c845bc53979491338e5, type: 2}
+  - {fileID: 11400000, guid: dada955bd8f88554e8a06cd001424d40, type: 2}
+  - {fileID: 11400000, guid: 93aff4d67c5f5254cb3571a263a79c45, type: 2}

@@ -141,6 +141,7 @@ MonoBehaviour:
   weaponStates:
     damage: 0
     timeToAttack: 0
+    numberOfAttack: 0
   timeToAttack: 2
   leftWhip: {fileID: 7914702044086921715}
   rightWhip: {fileID: 7914702044916900549}

@@ -6,7 +6,9 @@ public class AttackLightProjectil : MonoBehaviour
 {
     Vector3 direction;
     [SerializeField] float speed;
-    [SerializeField] int damage = 5;
+    public int damage = 5;
+
+    float ttl = 6f;
 
     public void SetDirection(float dir_x, float dir_y)
     {
@@ -29,7 +31,7 @@ public class AttackLightProjectil : MonoBehaviour
 
         if(Time.frameCount % 6 == 0)
         {
-            Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 0.5f);
+            Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 0.3f);
             foreach (Collider2D c in hit)
             {
                 enemyMovement enemy = c.GetComponent<enemyMovement>();
@@ -45,6 +47,13 @@ public class AttackLightProjectil : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }   
+        }
+
+        ttl -= Time.deltaTime;
+        if (ttl < 0f)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

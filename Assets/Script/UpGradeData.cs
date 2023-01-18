@@ -18,4 +18,10 @@ public class UpGradeData : ScriptableObject
     public UpGradeType upGradeType;
     public string Name;
     public Sprite icon;
+
+    public WeaponData weaponData;
+    public WeaponStates weaponUpgradeStates;
+
+    public Item item;
+    public ItemStats ItemStats;
 }
