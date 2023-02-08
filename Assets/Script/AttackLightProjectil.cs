@@ -34,9 +34,10 @@ public class AttackLightProjectil : MonoBehaviour
             Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 0.3f);
             foreach (Collider2D c in hit)
             {
-                enemyMovement enemy = c.GetComponent<enemyMovement>();
+                IDamageable enemy = c.GetComponent<IDamageable>();
                 if (enemy != null)
                 {
+                    PostDamageMessage(damage, transform.position);
                     enemy.TakeDamage(damage);
                     hitDetected = true;
                     break;
@@ -56,4 +57,10 @@ public class AttackLightProjectil : MonoBehaviour
         }
 
     }
+
+    public void PostDamageMessage(int damage, Vector3 position)
+    {
+        MessageSystem.instance.PostMessage(damage.ToString(), position);
+    }
+
 }

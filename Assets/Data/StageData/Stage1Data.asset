@@ -13,23 +13,21 @@ MonoBehaviour:
   m_Name: Stage1Data
   m_EditorClassIdentifier: 
   stageEvents:
-  - time: 2
-    message: hello
+  - eventType: 1
+    time: 5
+    message: 
     enemyToSpawn: {fileID: 11400000, guid: 2b0e60c8e610ecc4ea8f712597c1be34, type: 2}
-    count: 5
-  - time: 10
-    message: time 10!
+    objectToSpawn: {fileID: 0}
+    count: 1
+  - eventType: 1
+    time: 45
+    message: 
     enemyToSpawn: {fileID: 11400000, guid: 79d424c5315a5ec4497fa6a7f6f880f2, type: 2}
-    count: 20
-  - time: 15
-    message: time 15!
-    enemyToSpawn: {fileID: 11400000, guid: 17e1930fec78e4745af319e75a23d608, type: 2}
-    count: 20
-  - time: 20
-    message: time 15!
-    enemyToSpawn: {fileID: 11400000, guid: 341a54d11b70cf047bbbe97dc773f77f, type: 2}
-    count: 25
-  - time: 25
-    message: time 15!
-    enemyToSpawn: {fileID: 11400000, guid: 2b0e60c8e610ecc4ea8f712597c1be34, type: 2}
-    count: 20
+    objectToSpawn: {fileID: 0}
+    count: 2
+  - eventType: 3
+    time: 110
+    message: 
+    enemyToSpawn: {fileID: 0}
+    objectToSpawn: {fileID: 0}
+    count: 0

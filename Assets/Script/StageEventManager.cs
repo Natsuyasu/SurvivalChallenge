@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,10 +10,17 @@ public class StageEventManager : MonoBehaviour
 
     StageTime StageTime;
     int eventIndex;
+    PlayerWinManager PlayerWin;
 
     private void Awake()
     {
         StageTime = GetComponent<StageTime>();
+    }
+
+    private void Start()
+    {
+        PlayerWin = FindObjectOfType<PlayerWinManager>();
+        
     }
 
     private void Update()
@@ -24,15 +32,63 @@ public class StageEventManager : MonoBehaviour
 
         if(StageTime.time > StageData.stageEvents[eventIndex].time)
         {
-            Debug.Log(StageData.stageEvents[eventIndex].message);
-
-            for (int i = 0; i < StageData.stageEvents[eventIndex].count; i++)
+            switch (StageData.stageEvents[eventIndex].eventType)
             {
-                enemiesManager.SpawnEnemy(StageData.stageEvents[eventIndex].enemyToSpawn);
+                case StageEventType.SpawnEnemy:
+                    //for (int i = 0; i < StageData.stageEvents[eventIndex].count; i++){ }
+                    SpawnEnemy(false);
+                    break;
+                case StageEventType.SpawnObject:
+                    //for (int i = 0; i < StageData.stageEvents[eventIndex].count; i++) { }
+                    SpawnObject();
+
+                    break;
+
+                case StageEventType.WinStage:
+                    WinStage();
+
+                    break;
+
+
+                case StageEventType.SpawnEnemyBoss:
+                    SpawnEnemyBoss();
+                    break;
             }
-            
+
+            Debug.Log(StageData.stageEvents[eventIndex].message);
 
             eventIndex += 1;
         }
+    }
+
+    private void SpawnEnemyBoss()
+    {
+        SpawnEnemy(true);
+        //enemiesManager.SpawnEnemy(StageData.stageEvents[eventIndex].enemyToSpawn, true);
+    }
+
+    private void WinStage()
+    {
+        PlayerWin.Win();
+    }
+
+    private void SpawnEnemy(bool Boss)
+    {
+        for (int i = 0; i < StageData.stageEvents[eventIndex].count; i++) 
+        {
+            enemiesManager.SpawnEnemy(StageData.stageEvents[eventIndex].enemyToSpawn, Boss);
+        }
+        
+    }
+
+    private void SpawnObject()
+    {
+        for (int i = 0; i < StageData.stageEvents[eventIndex].count; i++) {
+            Vector3 positionToSpawn = GameManager.instance.playerTransform.position;
+            positionToSpawn += UtilityTools.GenerateRandomPositionSquarePattern(new Vector2(5f, 5f));
+
+            SpawnManager.instance.SpawnObjct(positionToSpawn, StageData.stageEvents[eventIndex].objectToSpawn);
+        }
+        
     }
 }

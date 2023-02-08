@@ -37,7 +37,7 @@ public class AttackLightWeapon : WeaponBase
             AttackLightProjectil attackLightProjectil = attackLight.GetComponent<AttackLightProjectil>();
             attackLightProjectil.SetDirection(playerMove.lastHorizontalVector, 0f);
             //attackLightProjectil.SetDirection(playerMove.lastHorizontalVector, newPosition.y);
-            attackLightProjectil.damage = weaponStates.damage;
+            attackLightProjectil.damage = GetDamage();
         }
         
     

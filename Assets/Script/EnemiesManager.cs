@@ -2,13 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemiesManager : MonoBehaviour
 {
+
+    [SerializeField] StageProgress stageProgress;
     [SerializeField] GameObject enemy;
     [SerializeField] Vector2 spawnArea;
     [SerializeField] float spawnTimer;
     GameObject player;
+
+    List<enemyMovement> bossEnemyList;
+    int totalBossHealth;
+    int currentBossHealth;
+    [SerializeField] Slider bossHeathBar;
     
     //[SerializeField] PlayerManager Manager;
     //public GameObject player;
@@ -18,36 +26,70 @@ public class EnemiesManager : MonoBehaviour
     private void Start()
     {
         player = GameManager.instance.playerTransform.gameObject;
+        bossHeathBar = FindObjectOfType<BossHPBar>().GetComponent<Slider>();
+        bossHeathBar.gameObject.SetActive(false);
+
     }
 
-    
-
-    public void SpawnEnemy(EnemyData enemyToSpawn)
+    private void Update()
     {
-        Vector3 position = GenerateRandomPosition();
+        UpdateBossHealth();
+    }
+
+    private void UpdateBossHealth()
+    {
+
+        if(bossEnemyList == null) { return; }
+        if (bossEnemyList.Count == 0) { return; }
+
+
+        currentBossHealth = 0;
+
+        for (int i= 0; i < bossEnemyList.Count; i++)
+        {
+            if (bossEnemyList[i] == null) { continue; }
+            currentBossHealth += bossEnemyList[i].stats.hp;
+        }
+
+        bossHeathBar.value = currentBossHealth;
+
+
+        if (currentBossHealth <= 0)
+        {
+            bossHeathBar.gameObject.SetActive(false);
+            bossEnemyList.Clear();
+        }
+
+    }
+
+    public void SpawnEnemy(EnemyData enemyToSpawn, bool isBoss)
+    {
+        Vector3 position = UtilityTools.GenerateRandomPositionSquarePattern(spawnArea);
         position += player.transform.position;
         GameObject newEnemy = Instantiate(enemyToSpawn.EnemyPrefab);
         newEnemy.transform.position = position;
-        newEnemy.GetComponent<enemyMovement>().SetTarget(player);
+        enemyMovement newEnemyComponent = newEnemy.GetComponent<enemyMovement>();
+        newEnemyComponent.SetTarget(player);
+        newEnemyComponent.SetStats(enemyToSpawn.stats);
+        newEnemyComponent.UpdateStatsForProgress(stageProgress.progress);
+
+        if(isBoss == true)
+        {
+            SpawnBossEnemy(newEnemyComponent);
+        }
+
         newEnemy.transform.parent = transform;
     }
 
-    private Vector3 GenerateRandomPosition()
+    private void SpawnBossEnemy(enemyMovement newBoss)
     {
-        Vector3 position = new Vector3();
-        float f = UnityEngine.Random.value > 0.5f ? -1f : 1f;
-        if (UnityEngine.Random.value > 0.5f)
-        {
-            position.x = UnityEngine.Random.Range(-spawnArea.x, spawnArea.x);
-            position.y = spawnArea.y * f;
-        }
-        else
-        {
-            position.x = spawnArea.x * f;
-            position.y = UnityEngine.Random.Range(-spawnArea.y, spawnArea.y);
-        }
+        if(bossEnemyList == null) { bossEnemyList = new List<enemyMovement>(); }
 
-        position.z = 0;
-        return position;
+        bossEnemyList.Add(newBoss);
+
+        totalBossHealth += newBoss.stats.hp;
+
+        bossHeathBar.gameObject.SetActive(true);
+        bossHeathBar.maxValue = totalBossHealth;
     }
 }

@@ -13,12 +13,16 @@ public class Character : MonoBehaviour
     public float hpRehenerationRate = 1f;
     public float hpRegenerationTimer;
 
+    public float damageBouns;
+
 
     [SerializeField] StatusBar hpBar;
 
     [HideInInspector] public Level level;
     [HideInInspector] public Coins coins;
     private bool isDead;
+
+    [SerializeField] DataCotainer dataCotainer;
 
 
     private void Awake()
@@ -29,7 +33,22 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+
+        ApplyPersistantUpgrade();
         hpBar.SetState(currentHP, maxHP);
+    }
+
+    private void ApplyPersistantUpgrade()
+    {
+        int HpUpgradeLevel = dataCotainer.GetUpgradeLevel(PlayerPersistantUpgrade.HP);
+
+        maxHP += maxHP / 10 * HpUpgradeLevel;
+        
+
+        int damageUpgradeLevel = dataCotainer.GetUpgradeLevel(PlayerPersistantUpgrade.Damage);
+
+        damageBouns = 1f + 0.1f * damageUpgradeLevel;
+
     }
 
     private void Update()

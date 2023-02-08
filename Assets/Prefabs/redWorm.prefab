@@ -97,11 +97,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyRB: {fileID: 6268500248533554098}
-  speed: 50
   targetGameObject: {fileID: 0}
-  hp: 2
-  damage: 1
-  experienceReward: 400
+  stats:
+    hp: 99
+    damage: 1
+    experienceReward: 400
+    speed: 50
 --- !u!50 &6268500248533554098
 Rigidbody2D:
   serializedVersion: 4

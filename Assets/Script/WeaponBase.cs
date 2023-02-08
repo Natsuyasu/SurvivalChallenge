@@ -13,6 +13,8 @@ public abstract class WeaponBase : MonoBehaviour
     public float timeToAttack = 1f;
     float timer;
 
+    Character wielder;
+
     public void Update()
     {
         timer -= Time.deltaTime;
@@ -35,9 +37,20 @@ public abstract class WeaponBase : MonoBehaviour
 
     public abstract void Attack();
     
+    public int GetDamage()
+    {
+        int damage = (int)(weaponData.stats.damage * wielder.damageBouns);
+        return damage;
+    }
+
     public virtual void PostDamage(int damage, Vector3 targetPosition)
     {
         MessageSystem.instance.PostMessage(damage.ToString(), targetPosition);
+    }
+
+    internal void AddOwner(Character charater)
+    {
+        wielder = charater;
     }
 
     public void Upgrade(UpGradeData upGradeData)

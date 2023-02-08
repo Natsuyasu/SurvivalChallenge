@@ -15,3 +15,8 @@ MonoBehaviour:
   Name: RedWorm
   EnemyPrefab: {fileID: 6268500248533554100, guid: 8e7226f68f6144947886e7bfd3257958,
     type: 3}
+  stats:
+    hp: 30
+    damage: 1
+    experienceReward: 400
+    speed: 50
