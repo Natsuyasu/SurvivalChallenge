@@ -3,9 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DiractionOfAttack
+{
+    None,
+    Forward,
+    LR,
+    UpDown
+}
 public abstract class WeaponBase : MonoBehaviour
 {
-
+    PlayerController playerMovement;
     public WeaponData weaponData;
 
     public WeaponStates weaponStates;
@@ -14,6 +21,13 @@ public abstract class WeaponBase : MonoBehaviour
     float timer;
 
     Character wielder;
+    public Vector2 vectorOfAttack;
+    [SerializeField] DiractionOfAttack attackDirection;
+
+    private void Awake()
+    {
+        playerMovement = GetComponentInParent<PlayerController>();
+    }
 
     public void Update()
     {
@@ -27,6 +41,22 @@ public abstract class WeaponBase : MonoBehaviour
 
     }
 
+    public void ApplyDamage(Collider2D[] colliders)
+    {
+        int damage = GetDamage();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Debug.Log(colliders[i].gameObject.name);
+            IDamageable e = colliders[i].GetComponent<IDamageable>();
+            if (e != null)
+            {
+
+                PostDamage(damage, colliders[i].transform.position);
+                e.TakeDamage(damage);
+            }
+
+        }
+    }
     public virtual void SetData(WeaponData wd)
     {
         weaponData = wd;
@@ -57,4 +87,31 @@ public abstract class WeaponBase : MonoBehaviour
     {
         weaponStates.Sum(upGradeData.weaponUpgradeStates);
     }
+
+    public void UpdateVectorOfAttack()
+    {
+        if(attackDirection == DiractionOfAttack.None)
+        {
+            vectorOfAttack = Vector2.zero;
+            return;
+        }
+        switch (attackDirection)
+        {
+            case DiractionOfAttack.Forward:
+                vectorOfAttack.x = playerMovement.lastHorizontalCoupledVector;
+                vectorOfAttack.y = playerMovement.lastVerticalCoupledVector;
+                break;
+            case DiractionOfAttack.LR:
+                vectorOfAttack.x = playerMovement.lastHorizontalCoupledVector;
+                vectorOfAttack.y = 0f;
+                break;
+            case DiractionOfAttack.UpDown:
+                vectorOfAttack.x = 0f;
+                vectorOfAttack.y = playerMovement.lastVerticalCoupledVector;
+                break;
+        }
+        vectorOfAttack = vectorOfAttack.normalized;
+    }
+
+
 }

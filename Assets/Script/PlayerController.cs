@@ -12,15 +12,24 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public Vector3 movementVector;
-    //[HideInInspector]
-    public float lastHorizontalVector;
     [HideInInspector]
-    public float lastVerticalVector;
+    public float lastHorizontalDeCoupledVector;
+    [HideInInspector]
+    public float lastVerticalDeCoupledVector;
+
+    [HideInInspector]
+    public float lastHorizontalCoupledVector;
+    [HideInInspector]
+    public float lastVerticalCoupledVector;
+
     // Start is called before the first frame update
     private void Start()
     {
-        lastHorizontalVector = 1f;
-        lastVerticalVector = 1f;
+        lastHorizontalDeCoupledVector = 1f;
+        lastVerticalDeCoupledVector = 1f;
+
+        lastHorizontalCoupledVector = -1f;
+        lastVerticalCoupledVector = -1f;
     }
 
     // Update is called once per frame
@@ -59,13 +68,19 @@ public class PlayerController : MonoBehaviour
         }
         RB.velocity = movementVector * speed * Time.deltaTime;
 
+        if (movementVector.x != 0 || movementVector.y != 0)
+        {
+            lastHorizontalCoupledVector = movementVector.x;
+            lastVerticalCoupledVector = movementVector.y;
+        }
+
         if (movementVector.x != 0)
         {
-            lastHorizontalVector = movementVector.x;
+            lastHorizontalDeCoupledVector = movementVector.x;
         }
         if (movementVector.y != 0)
         {
-            lastVerticalVector = movementVector.y;
+            lastVerticalDeCoupledVector = movementVector.y;
         }
     }
 

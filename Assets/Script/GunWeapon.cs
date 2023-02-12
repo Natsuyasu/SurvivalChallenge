@@ -1,37 +1,19 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackLightWeapon : WeaponBase
+public class GunWeapon : WeaponBase
 {
-    //PlayerController playerMove;
+    [SerializeField] GameObject BulletPrefab;
 
-    [SerializeField] GameObject AttackLightPrefab;
-    [SerializeField] float spread;
-    /*private void Awake()
-    {
-        playerMove = GetComponentInParent<PlayerController>();
-    }
-
-    */
-
-    
     public override void Attack()
     {
-
         UpdateVectorOfAttack();
         for (int i = 0; i < weaponStates.numberOfAttack; i++)
         {
-            GameObject attackLight = Instantiate(AttackLightPrefab);
+            GameObject attackLight = Instantiate(BulletPrefab);
 
             Vector3 newPosition = transform.position;
-
-            if (weaponStates.numberOfAttack > 1)
-            {
-                newPosition.y -= (spread * (weaponStates.numberOfAttack -1)) / 2;
-                newPosition.y += i * spread;
-            }
 
             attackLight.transform.position = newPosition;
             AttackLightProjectil attackLightProjectil = attackLight.GetComponent<AttackLightProjectil>();
@@ -39,7 +21,5 @@ public class AttackLightWeapon : WeaponBase
             //attackLightProjectil.SetDirection(playerMove.lastHorizontalVector, newPosition.y);
             attackLightProjectil.damage = GetDamage();
         }
-        
-    
-}
+    }
 }

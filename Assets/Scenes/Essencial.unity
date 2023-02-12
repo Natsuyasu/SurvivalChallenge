@@ -3769,7 +3769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObjectsContainer: {fileID: 605066078}
-  startingWeapon: {fileID: 11400000, guid: 7c7faaebfe144ed468bafea371a6f8ba, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 9582675124255754b8dcc24cad9c7799, type: 2}
 --- !u!1 &1476627283
 GameObject:
   m_ObjectHideFlags: 0
