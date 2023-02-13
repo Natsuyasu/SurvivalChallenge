@@ -6,7 +6,7 @@ using UnityEngine;
 public class StageEventManager : MonoBehaviour
 {
     [SerializeField] StageData StageData;
-    [SerializeField] EnemiesManager enemiesManager;
+    EnemiesManager enemiesManager;
 
     StageTime StageTime;
     int eventIndex;
@@ -20,6 +20,7 @@ public class StageEventManager : MonoBehaviour
     private void Start()
     {
         PlayerWin = FindObjectOfType<PlayerWinManager>();
+        enemiesManager = FindObjectOfType<EnemiesManager>();
         
     }
 
@@ -81,6 +82,11 @@ public class StageEventManager : MonoBehaviour
         {
             enemiesManager.SpawnEnemy(StageData.stageEvents[eventIndex].enemyToSpawn, Boss);
         }*/
+
+        if(currentEvent.isRepeatedEvent == true)
+        {
+            enemiesManager.AddRepeatedSpawn(currentEvent,Boss);        
+        }
         
     }
 

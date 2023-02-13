@@ -10,12 +10,22 @@ public class EnemiesSpawnGroup
     public EnemyData enemyData;
     public int count;
     public bool isBoss;
+    public float repeatTimer;
+    public float timeBetweenSpawns;
+    public int repeatCount;
 
     public EnemiesSpawnGroup(EnemyData enemyData, int count, bool isBoss)
     {
         this.enemyData = enemyData;
         this.count = count;
         this.isBoss = isBoss;
+    }
+
+    public void SetRepeatSpawn(float timeBetweenRepeats, int repeatCount)
+    {
+        this.timeBetweenSpawns = timeBetweenRepeats;
+        this.repeatCount = repeatCount;
+        repeatTimer = timeBetweenSpawns;
     }
 }
 
@@ -25,7 +35,7 @@ public class EnemiesManager : MonoBehaviour
     [SerializeField] StageProgress stageProgress;
     [SerializeField] GameObject enemy;
     [SerializeField] Vector2 spawnArea;
-    [SerializeField] float spawnTimer;
+    //[SerializeField] float spawnTimer;
     GameObject player;
 
     List<enemyMovement> bossEnemyList;
@@ -34,6 +44,9 @@ public class EnemiesManager : MonoBehaviour
     [SerializeField] Slider bossHeathBar;
 
     List<EnemiesSpawnGroup> enemiesSpawnGroupsList;
+    List<EnemiesSpawnGroup> repeatSpawnGroupList;
+
+    int spawnPerFrame = 2;
     
     //[SerializeField] PlayerManager Manager;
     //public GameObject player;
@@ -45,27 +58,51 @@ public class EnemiesManager : MonoBehaviour
         player = GameManager.instance.playerTransform.gameObject;
         bossHeathBar = FindObjectOfType<BossHPBar>().GetComponent<Slider>();
         bossHeathBar.gameObject.SetActive(false);
-
+        stageProgress = FindObjectOfType<StageProgress>();
     }
 
     private void Update()
     {
         processSpawn();
         UpdateBossHealth();
+        ProcessRepeatedSpawnGroups();
+    }
+
+    private void ProcessRepeatedSpawnGroups()
+    {
+        if (repeatSpawnGroupList == null) { return; }
+        for(int i = repeatSpawnGroupList.Count - 1; i >= 0; i--)
+        {
+            repeatSpawnGroupList[i].repeatTimer -= Time.deltaTime;
+            if(repeatSpawnGroupList[i].repeatTimer < 0)
+            {
+                repeatSpawnGroupList[i].repeatTimer = repeatSpawnGroupList[i].timeBetweenSpawns;
+                AddGroupToSpawn(repeatSpawnGroupList[i].enemyData, repeatSpawnGroupList[i].count, repeatSpawnGroupList[i].isBoss);
+                repeatSpawnGroupList[i].repeatCount -= 1;
+                if(repeatSpawnGroupList[i].repeatCount <= 0)
+                {
+                    repeatSpawnGroupList.RemoveAt(i);
+                }
+            }
+        } 
     }
 
     private void processSpawn()
     {
         if(enemiesSpawnGroupsList == null) { return; }
 
-        if(enemiesSpawnGroupsList.Count > 0)
+        for(int i = 0; i< spawnPerFrame; i++)
         {
-            SpawnEnemy(enemiesSpawnGroupsList[0].enemyData, enemiesSpawnGroupsList[0].isBoss);
-            enemiesSpawnGroupsList[0].count -= 1;
-
-            if(enemiesSpawnGroupsList[0].count <= 0)
+            if (enemiesSpawnGroupsList.Count > 0)
             {
-                enemiesSpawnGroupsList.RemoveAt(0);
+                if (enemiesSpawnGroupsList[0].count <= 0) { return; }
+                SpawnEnemy(enemiesSpawnGroupsList[0].enemyData, enemiesSpawnGroupsList[0].isBoss);
+                enemiesSpawnGroupsList[0].count -= 1;
+
+                if (enemiesSpawnGroupsList[0].count <= 0)
+                {
+                    enemiesSpawnGroupsList.RemoveAt(0);
+                }
             }
         }
     }
@@ -93,6 +130,20 @@ public class EnemiesManager : MonoBehaviour
             bossHeathBar.gameObject.SetActive(false);
             bossEnemyList.Clear();
         }
+
+    }
+
+    public void AddRepeatedSpawn(StageEvent stageEvent, bool isBoss)
+    {
+        EnemiesSpawnGroup repeatSpawnGroup = new EnemiesSpawnGroup(stageEvent.enemyToSpawn, stageEvent.count, isBoss);
+        repeatSpawnGroup.SetRepeatSpawn(stageEvent.repeatEverySecs, stageEvent.repeatCount);
+
+        if(repeatSpawnGroupList == null)
+        {
+            repeatSpawnGroupList = new List<EnemiesSpawnGroup>();
+        }
+
+        repeatSpawnGroupList.Add(repeatSpawnGroup);
 
     }
 

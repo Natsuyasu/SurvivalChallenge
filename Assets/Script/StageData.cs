@@ -20,6 +20,9 @@ public class StageEvent
     public GameObject objectToSpawn;
     public int count;
 
+    public bool isRepeatedEvent;
+    public float repeatEverySecs;
+    public int repeatCount;
 }
 
 [CreateAssetMenu]

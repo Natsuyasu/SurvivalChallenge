@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Garlic
   stats:
-    damage: 1
+    damage: 300
     timeToAttack: 1
     numberOfAttack: 1
   weaponBasePrefab: {fileID: 6260545526792968211, guid: 48f010e5c3fe47e4fb0eeb689776c7c4,

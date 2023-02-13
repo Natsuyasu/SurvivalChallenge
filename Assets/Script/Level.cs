@@ -110,8 +110,20 @@ public class Level : MonoBehaviour
         experienceBar.SetLevelText(level);
     }
 
+    public void ShuffleUpgrades()
+    {
+        for(int i = upGrades.Count - 1; i> 0; i--)
+        {
+            int x = Random.Range(0, i + 1);
+            UpGradeData shuffleElement = upGrades[i];
+            upGrades[i] = upGrades[x];
+            upGrades[x] = shuffleElement;
+        }
+    }
+
     public List<UpGradeData> GetUpGrades(int count)
     {
+        ShuffleUpgrades();
         List<UpGradeData> upGradeList = new List<UpGradeData>();
 
         if (count > upGrades.Count)
@@ -121,7 +133,7 @@ public class Level : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            upGradeList.Add(upGrades[Random.Range(0, upGrades.Count)]);
+            upGradeList.Add(upGrades[i]);
         }
         
 
