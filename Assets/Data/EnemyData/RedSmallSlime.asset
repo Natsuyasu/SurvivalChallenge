@@ -16,7 +16,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 7941289027213457573, guid: bf819686bb97caa4c930df755f73f818,
     type: 3}
   stats:
-    hp: 999
+    hp: 50
     damage: 1
     experienceReward: 400
     speed: 50

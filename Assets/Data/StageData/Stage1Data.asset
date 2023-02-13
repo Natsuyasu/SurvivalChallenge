@@ -25,9 +25,27 @@ MonoBehaviour:
   - eventType: 1
     time: 45
     message: 
+    enemyToSpawn: {fileID: 11400000, guid: 17e1930fec78e4745af319e75a23d608, type: 2}
+    objectToSpawn: {fileID: 0}
+    count: 1
+    isRepeatedEvent: 0
+    repeatEverySecs: 0
+    repeatCount: 0
+  - eventType: 0
+    time: 20
+    message: 
     enemyToSpawn: {fileID: 11400000, guid: 79d424c5315a5ec4497fa6a7f6f880f2, type: 2}
     objectToSpawn: {fileID: 0}
     count: 2
+    isRepeatedEvent: 1
+    repeatEverySecs: 3
+    repeatCount: 5
+  - eventType: 0
+    time: 50
+    message: 
+    enemyToSpawn: {fileID: 11400000, guid: 341a54d11b70cf047bbbe97dc773f77f, type: 2}
+    objectToSpawn: {fileID: 0}
+    count: 5
     isRepeatedEvent: 0
     repeatEverySecs: 0
     repeatCount: 0

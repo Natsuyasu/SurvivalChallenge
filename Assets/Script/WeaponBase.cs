@@ -102,7 +102,7 @@ public abstract class WeaponBase : MonoBehaviour
                 vectorOfAttack.y = playerMovement.lastVerticalCoupledVector;
                 break;
             case DiractionOfAttack.LR:
-                vectorOfAttack.x = playerMovement.lastHorizontalCoupledVector;
+                vectorOfAttack.x = playerMovement.lastHorizontalDeCoupledVector;
                 vectorOfAttack.y = 0f;
                 break;
             case DiractionOfAttack.UpDown:

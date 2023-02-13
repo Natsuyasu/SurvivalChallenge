@@ -3812,7 +3812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObjectsContainer: {fileID: 605066078}
-  startingWeapon: {fileID: 11400000, guid: d316d17a280103145b272843f855638e, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 9582675124255754b8dcc24cad9c7799, type: 2}
 --- !u!1 &1476627283
 GameObject:
   m_ObjectHideFlags: 0
