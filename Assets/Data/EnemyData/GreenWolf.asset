@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61b811f1b55df4499d6eed763162e41, type: 3}
+  m_Name: GreenWolf
+  m_EditorClassIdentifier: 
+  Name: GreenWolf
+  EnemyPrefab: {fileID: 1921866256376320253, guid: 7b21cd7cf1832b04384b53644243ccf5,
+    type: 3}
+  stats:
+    hp: 550
+    damage: 5
+    experienceReward: 500
+    speed: 50

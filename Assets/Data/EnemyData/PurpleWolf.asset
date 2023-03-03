@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61b811f1b55df4499d6eed763162e41, type: 3}
+  m_Name: PurpleWolf
+  m_EditorClassIdentifier: 
+  Name: PurpleWlof
+  EnemyPrefab: {fileID: 8044103819630901142, guid: 5f68caafa2340f1479fd4197e0008cd9,
+    type: 3}
+  stats:
+    hp: 200
+    damage: 2
+    experienceReward: 250
+    speed: 45

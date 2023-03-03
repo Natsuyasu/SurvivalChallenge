@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61b811f1b55df4499d6eed763162e41, type: 3}
+  m_Name: BlueRat
+  m_EditorClassIdentifier: 
+  Name: BlueRat
+  EnemyPrefab: {fileID: 1665560906787397628, guid: 2c4ef3e29c942b542a15c74a4614d1cf,
+    type: 3}
+  stats:
+    hp: 150
+    damage: 3
+    experienceReward: 200
+    speed: 50
