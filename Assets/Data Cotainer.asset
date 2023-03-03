@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f2a5c08c095eb45a1408047fb5ecab, type: 3}
   m_Name: Data Cotainer
   m_EditorClassIdentifier: 
-  coins: 2147482147
+  coins: 1552
   stageCompletion: 01
   upgrades:
   - persistantUpgrade: 0
-    level: 15
+    level: 1
     max_level: 15
     CostToUpgrade: 100
   - persistantUpgrade: 1
-    level: 0
+    level: 2
     max_level: 15
     CostToUpgrade: 100

@@ -17,7 +17,6 @@ public class PlayerUpgradeUIElement : MonoBehaviour
         UpdateElement();
     }
 
-
     public void Upgrade()
     {
         PlayerUpgrades playerUpgrades = dataCotainer.upgrades[(int)upgrade];
@@ -26,7 +25,6 @@ public class PlayerUpgradeUIElement : MonoBehaviour
         {
             return;
         }
-
 
         if(dataCotainer.coins >= playerUpgrades.CostToUpgrade)
         {
@@ -40,8 +38,8 @@ public class PlayerUpgradeUIElement : MonoBehaviour
     {
         PlayerUpgrades playerUpgrades = dataCotainer.upgrades[(int)upgrade];
         upgradeName.text = upgrade.ToString();
-        Level.text = playerUpgrades.level.ToString();
-        Price.text = playerUpgrades.CostToUpgrade.ToString();
+        Level.text = "LV "+ playerUpgrades.level.ToString();
+        Price.text = "Price "+ playerUpgrades.CostToUpgrade.ToString();
 ;    }
 
 }

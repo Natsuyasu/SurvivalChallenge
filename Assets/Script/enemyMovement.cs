@@ -43,6 +43,9 @@ public class enemyMovement : MonoBehaviour, IDamageable
         EnemyRB = GetComponent<Rigidbody2D>();
         //targetGameObject = targetDestination.gameObject;
     }
+
+
+
     public void SetTarget(GameObject target)
     {
         targetGameObject = target;

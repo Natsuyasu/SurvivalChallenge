@@ -162,6 +162,9 @@ public class EnemiesManager : MonoBehaviour
     {
         Vector3 position = UtilityTools.GenerateRandomPositionSquarePattern(spawnArea);
         position += player.transform.position;
+
+        
+
         GameObject newEnemy = Instantiate(enemyToSpawn.EnemyPrefab);
         newEnemy.transform.position = position;
         enemyMovement newEnemyComponent = newEnemy.GetComponent<enemyMovement>();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ public class AttackLightProjectil : MonoBehaviour
     Vector3 direction;
     [SerializeField] float speed;
     public int damage = 5;
+    public int numOfHits = 1;
+
+    List<IDamageable> enemiesHit;
 
     float ttl = 6f;
 
@@ -22,40 +26,72 @@ public class AttackLightProjectil : MonoBehaviour
         }
     }
 
-    bool hitDetected = false;
-
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * speed * Time.deltaTime;
+        Move();
 
-        if(Time.frameCount % 6 == 0)
+        if (Time.frameCount % 6 == 0)
         {
-            Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 0.3f);
-            foreach (Collider2D c in hit)
-            {
-                IDamageable enemy = c.GetComponent<IDamageable>();
-                if (enemy != null)
-                {
-                    PostDamageMessage(damage, transform.position);
-                    enemy.TakeDamage(damage);
-                    hitDetected = true;
-                    break;
-                }
-            }
-
-            if (hitDetected)
-            {
-                Destroy(gameObject);
-            }
+            HitDetection();
         }
 
+        Timer();
+
+    }
+
+    private void Timer()
+    {
         ttl -= Time.deltaTime;
         if (ttl < 0f)
         {
             Destroy(gameObject);
         }
+    }
 
+    private void HitDetection()
+    {
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        foreach (Collider2D c in hit)
+        {
+            if(numOfHits > 0)
+            {
+                IDamageable enemy = c.GetComponent<IDamageable>();
+                if (enemy != null)
+                {
+                    if (CheckRepeatHit(enemy) == false)
+                    {
+                        PostDamageMessage(damage, transform.position);
+                        enemiesHit.Add(enemy);
+                        enemy.TakeDamage(damage);
+                        numOfHits -= 1;
+                    }
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        if (numOfHits <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private bool CheckRepeatHit(IDamageable enemy)
+    {
+        if(enemiesHit == null)
+        {
+            enemiesHit = new List<IDamageable>();
+        }
+        return enemiesHit.Contains(enemy);
+    }
+
+    private void Move()
+    {
+        transform.position += direction * speed * Time.deltaTime;
     }
 
     public void PostDamageMessage(int damage, Vector3 position)

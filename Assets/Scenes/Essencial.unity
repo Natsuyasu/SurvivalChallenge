@@ -2130,9 +2130,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 35967e8a4dfb1664e9b066939272c0a4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bef0cef2ded0f0645ad90c6e5bdd4965, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2228,7 +2228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb314a783fc6f2e46b3233c213363658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicOnStart: {fileID: 8300000, guid: 35967e8a4dfb1664e9b066939272c0a4, type: 3}
+  musicOnStart: {fileID: 8300000, guid: bef0cef2ded0f0645ad90c6e5bdd4965, type: 3}
   timeToSwich: 5
 --- !u!1 &982355951
 GameObject:
@@ -3729,10 +3729,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580ec0f15b867704693fbd90215b5e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 80
+  maxHP: 1000
+  currentHP: 1000
   armor: 0
-  hpRehenerationRate: 1
+  hpRehenerationRate: 5
   hpRegenerationTimer: 0
   damageBouns: 0
   hpBar: {fileID: 97925778}
@@ -3812,7 +3812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObjectsContainer: {fileID: 605066078}
-  startingWeapon: {fileID: 11400000, guid: 9582675124255754b8dcc24cad9c7799, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 7c7faaebfe144ed468bafea371a6f8ba, type: 2}
 --- !u!1 &1476627283
 GameObject:
   m_ObjectHideFlags: 0

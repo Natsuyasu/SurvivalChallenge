@@ -17,6 +17,6 @@ MonoBehaviour:
     type: 3}
   stats:
     hp: 50
-    damage: 1
-    experienceReward: 400
-    speed: 50
+    damage: 10
+    experienceReward: 200
+    speed: 48
