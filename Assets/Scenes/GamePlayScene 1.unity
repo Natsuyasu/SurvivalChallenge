@@ -1102,7 +1102,7 @@ MonoBehaviour:
   Item: {fileID: 3917216890479268680, guid: afae61930837bf84495c144ccabc4fda, type: 3}
   spawnArea: {x: 7, y: 6}
   spawnTimer: 3
-  probability: 0.1
+  probability: 0.021
 --- !u!1 &797688886
 GameObject:
   m_ObjectHideFlags: 0
