@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Armor
   stats:
-    armor: 5
+    armor: 20
   upGrades:
   - {fileID: 11400000, guid: 2faa9b8a1bb68e14aae9c21344fcf618, type: 2}
