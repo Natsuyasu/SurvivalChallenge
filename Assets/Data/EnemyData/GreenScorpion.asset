@@ -19,4 +19,4 @@ MonoBehaviour:
     hp: 400
     damage: 4
     experienceReward: 400
-    speed: 50
+    speed: 80

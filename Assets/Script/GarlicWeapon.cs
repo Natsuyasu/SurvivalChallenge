@@ -5,6 +5,7 @@ using UnityEngine;
 public class GarlicWeapon : WeaponBase
 {
     [SerializeField] float attackAreaSize = 3f;
+    //[SerializeField] GameObject MagicPrefab;
     //[SerializeField] GameObject GarlicPrefab;
 
     /*private void Awake()

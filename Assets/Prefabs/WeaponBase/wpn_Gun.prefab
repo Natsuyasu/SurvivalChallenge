@@ -51,5 +51,5 @@ MonoBehaviour:
   timeToAttack: 1
   vectorOfAttack: {x: 0, y: 0}
   attackDirection: 1
-  BulletPrefab: {fileID: 7843018440927625087, guid: 8c754c429b864724aa052b038842be78,
+  BulletPrefab: {fileID: 7843018440927625087, guid: 3b46e86471a271b488f72b18d6f077d1,
     type: 3}

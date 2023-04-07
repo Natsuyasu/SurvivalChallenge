@@ -50,7 +50,7 @@ MonoBehaviour:
     repeatEverySecs: 0
     repeatCount: 0
   - eventType: 3
-    time: 150
+    time: 100
     message: 
     enemyToSpawn: {fileID: 0}
     objectToSpawn: {fileID: 0}

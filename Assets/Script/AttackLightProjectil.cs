@@ -51,7 +51,7 @@ public class AttackLightProjectil : MonoBehaviour
 
     private void HitDetection()
     {
-        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, 0.6f);
         foreach (Collider2D c in hit)
         {
             if(numOfHits > 0)

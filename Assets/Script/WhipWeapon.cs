@@ -31,6 +31,7 @@ public class WhipWeapon : WeaponBase
             if (playerController.lastHorizontalDeCoupledVector > 0)
             {
                 rightWhip.SetActive(true);
+                Debug.Log("whip active");
                 Collider2D[] colliders = Physics2D.OverlapBoxAll(rightWhip.transform.position, attackSize, 0f);
                 ApplyDamage(colliders);
 
@@ -38,11 +39,12 @@ public class WhipWeapon : WeaponBase
             if (playerController.lastHorizontalDeCoupledVector < 0)
             {
                 rightWhip.SetActive(true);
+                Debug.Log("whip active");
                 Collider2D[] colliders = Physics2D.OverlapBoxAll(rightWhip.transform.position, attackSize, 0f);
                 ApplyDamage(colliders);
 
             }
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.4f);
         }
         
     }
