@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackLight(moreHit)
   m_EditorClassIdentifier: 
   upGradeType: 0
-  Name: 
+  Name: The attack of the the Orb of Light will penetrate an enemy.
   icon: {fileID: 0}
   weaponData: {fileID: 0}
   weaponUpgradeStates:

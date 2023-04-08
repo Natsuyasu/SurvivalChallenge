@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: AttackLight WeaponAcquireUpgrade
   m_EditorClassIdentifier: 
   upGradeType: 2
-  Name: Attack Light
+  Name: Unlock the Orb of Light weapon. Attack left or right.
   icon: {fileID: 21300000, guid: 91420ea44ea60d940b4e129e4079a5d2, type: 3}
   weaponData: {fileID: 11400000, guid: 7c7faaebfe144ed468bafea371a6f8ba, type: 2}
+  weaponUpgradeStates:
+    damage: 0
+    timeToAttack: 0
+    numberOfAttack: 0
+  item: {fileID: 0}
+  ItemStats:
+    armor: 0

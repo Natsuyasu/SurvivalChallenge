@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: AttackLight(AddLight)
   m_EditorClassIdentifier: 
   upGradeType: 0
-  Name: Add Light
+  Name: Add one more bullet per shot for the Orb of Light.
   icon: {fileID: 21300000, guid: e116f543e27d22448846c3ef2ac2d4b5, type: 3}
   weaponData: {fileID: 11400000, guid: 7c7faaebfe144ed468bafea371a6f8ba, type: 2}
   weaponUpgradeStates:
     damage: 0
     timeToAttack: 0
     numberOfAttack: 1
+  item: {fileID: 0}
+  ItemStats:
+    armor: 0

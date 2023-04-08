@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Whip Upgrade (Faster Attack)
   m_EditorClassIdentifier: 
   upGradeType: 0
-  Name: faster attack
+  Name: The Whip can attack faster.
   icon: {fileID: 21300000, guid: d6bd73a085805f042a30d1f18a84ff9c, type: 3}
   weaponData: {fileID: 11400000, guid: 36f667605b4e64a4ebbeacf913b7b0dc, type: 2}
   weaponUpgradeStates:
     damage: 0
     timeToAttack: -0.5
+    numberOfAttack: 0
+  item: {fileID: 0}
+  ItemStats:
+    armor: 0

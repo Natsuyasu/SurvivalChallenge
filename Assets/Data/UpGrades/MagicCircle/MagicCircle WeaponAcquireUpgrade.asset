@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MagicCircle WeaponAcquireUpgrade
   m_EditorClassIdentifier: 
   upGradeType: 2
-  Name: MagicCircle
+  Name: Unlock the Magic Array weapons. Deals damage continuously.
   icon: {fileID: 21300000, guid: 6765c844fb8bca44891bfbd1a1ce2c7d, type: 3}
   weaponData: {fileID: 11400000, guid: d316d17a280103145b272843f855638e, type: 2}
   weaponUpgradeStates:

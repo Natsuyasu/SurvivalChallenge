@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Whip Upgrade (Add Strick)
   m_EditorClassIdentifier: 
   upGradeType: 0
-  Name: add strike
+  Name: The Whip will deal one more damage per attack.
   icon: {fileID: 21300000, guid: 549e2c4589d7d404c89e3ad63b82f080, type: 3}
   weaponData: {fileID: 11400000, guid: 36f667605b4e64a4ebbeacf913b7b0dc, type: 2}
   weaponUpgradeStates:

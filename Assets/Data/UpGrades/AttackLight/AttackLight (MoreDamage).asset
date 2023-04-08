@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: AttackLight (MoreDamage)
   m_EditorClassIdentifier: 
   upGradeType: 0
-  Name: More Damage
+  Name: Increased damage from the Orb of Light.
   icon: {fileID: 21300000, guid: 66136f74da39e1f49a786c8d49109633, type: 3}
   weaponData: {fileID: 11400000, guid: 7c7faaebfe144ed468bafea371a6f8ba, type: 2}
   weaponUpgradeStates:
     damage: 20
     timeToAttack: 0
     numberOfAttack: 0
+  item: {fileID: 0}
+  ItemStats:
+    armor: 0

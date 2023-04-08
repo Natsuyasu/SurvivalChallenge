@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor ItemAcquireUpgeade
   m_EditorClassIdentifier: 
   upGradeType: 3
-  Name: 
+  Name: Unlock Armor. Reduce the damage received.
   icon: {fileID: 21300000, guid: 12effd2c32fc3cc42a82c6bb72865d32, type: 3}
   weaponData: {fileID: 0}
   weaponUpgradeStates:
@@ -21,3 +21,5 @@ MonoBehaviour:
     timeToAttack: 0
     numberOfAttack: 0
   item: {fileID: 11400000, guid: 23235ddea7d8bbc46a2b7c8627a3359f, type: 2}
+  ItemStats:
+    armor: 0
