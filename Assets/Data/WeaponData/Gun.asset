@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980502a0af121c44080d9b400c57c50b, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Gun
   stats:
     damage: 10
     timeToAttack: 1
